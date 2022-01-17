@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+{% if data.sessions %}
+{% for i in data.sessions  %}
+<h1>Name : {{i.name}}</h1>
+<p>Date : {{i.date}}</p>
+<p>Address : {{i.address}}</p>
+<p>Vaccine: {{i.vaccine}}</p>
+<p>Slots: <br>
+     {% for j in i.slots  %}
+     <ul>
+         <li>{{j}}</li>
+     </ul>{% endfor %}</p>
+
+{% endfor %}
+{% else %}
+No results found
+
+{% endif %}
+{% endblock content %}
