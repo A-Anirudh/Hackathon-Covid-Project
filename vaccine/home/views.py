@@ -38,6 +38,7 @@ def verify(request):
             mobile = form.cleaned_data['mobile']
             data = {
                 'mobile': str(mobile),
+                'secret': 'Vaccine@2020'
             }
             headers = {
                 'Content-Type': 'application/json',
