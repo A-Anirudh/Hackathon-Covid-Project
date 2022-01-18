@@ -38,16 +38,16 @@ def verify(request):
             mobile = form.cleaned_data['mobile']
             data = {
                 'mobile': str(mobile),
-                "secret": "U2FsdGVkX18sE+vnPXRnKJ4Z7RVHhHOhsYqPQp0+gOYPTqNcjhfcDweWi+lPrqJZvhtWg3V0MVrmRYoTafiPWA=="
-                }
-
-            headers = {
-                'accept': 'application/json',
-                'Content-Type': 'application/json',
             }
-            base_url = f'https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP'
-            data = requests.post(base_url,data=data, headers=headers)
-            print(f'This is the response {data}')
+            headers = {
+                'Content-Type': 'application/json',
+                'accept': 'application/json',
+            }
+
+            url = 'https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP'
+            data = requests.post(url, data=data, headers=headers)
+
+            print(data)
     else:
         form = VerifyForm()
     context={
